@@ -1,0 +1,37 @@
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>
+                    %highlight{%d{HH:mm:ss.SSS} %-5level [%logger{36}] [%M (line:%L)] [%t]: %msg%n}{FATAL=magenta, ERROR=red, WARN=yellow, INFO=blue, DEBUG=default, TRACE=white}
+                </pattern>
+                <disableAnsi>false</disableAnsi>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="OFF">  <!-- set logger level here -->
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
+<!--
+command to run each cell and setup etcd on each (Windows)
+docker-compose -f ./docker-compose0.yml -p local up -d; docker-compose -f ./docker-compose1.yml -p cell1 up -d; docker-compose -f ./docker-compose2.yml -p cell2 up -d; gradle etcd_setup
+-->
+
+        <!--
+        personal reminder:
+        logger levels: (loggers of level less or equal than the one set are shown)
+
+        1 OFF
+        2 FATAL
+        3 ERROR
+        4 WARN
+        5 INFO
+        6 DEBUG
+        7 TRACE
+        8 ALL
+
+        -->

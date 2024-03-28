@@ -1,0 +1,89 @@
+version: '3.9'
+services:
+  node_0:
+    image: bitnami/etcd
+    ports:
+      - 10000:2379
+    volumes:
+      - node_0_volume:/etcd_data
+    environment:
+      ETCD_NAME: node_0
+      ETCD_DATA_DIR: /etcd_data/node_0
+      ETCD_ADVERTISE_CLIENT_URLS: http://node_0:2379
+      ETCD_LISTEN_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: http://node_0:2380
+      ETCD_LISTEN_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_CLUSTER: node_0=http://node_0:2380,node_1=http://node_1:2380,node_2=http://node_2:2380,node_3=http://node_3:2380,node_4=http://node_4:2380
+      ALLOW_NONE_AUTHENTICATION: 'yes'
+      ETCD_INITIAL_CLUSTER_STATE: new
+  node_1:
+    image: bitnami/etcd
+    ports:
+      - 10001:2379
+    volumes:
+      - node_1_volume:/etcd_data
+    environment:
+      ETCD_NAME: node_1
+      ETCD_DATA_DIR: /etcd_data/node_1
+      ETCD_ADVERTISE_CLIENT_URLS: http://node_1:2379
+      ETCD_LISTEN_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: http://node_1:2380
+      ETCD_LISTEN_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_CLUSTER: node_0=http://node_0:2380,node_1=http://node_1:2380,node_2=http://node_2:2380,node_3=http://node_3:2380,node_4=http://node_4:2380
+      ALLOW_NONE_AUTHENTICATION: 'yes'
+      ETCD_INITIAL_CLUSTER_STATE: new
+  node_2:
+    image: bitnami/etcd
+    ports:
+      - 10002:2379
+    volumes:
+      - node_2_volume:/etcd_data
+    environment:
+      ETCD_NAME: node_2
+      ETCD_DATA_DIR: /etcd_data/node_2
+      ETCD_ADVERTISE_CLIENT_URLS: http://node_2:2379
+      ETCD_LISTEN_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: http://node_2:2380
+      ETCD_LISTEN_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_CLUSTER: node_0=http://node_0:2380,node_1=http://node_1:2380,node_2=http://node_2:2380,node_3=http://node_3:2380,node_4=http://node_4:2380
+      ALLOW_NONE_AUTHENTICATION: 'yes'
+      ETCD_INITIAL_CLUSTER_STATE: new
+  node_3:
+    image: bitnami/etcd
+    ports:
+      - 10003:2379
+    volumes:
+      - node_3_volume:/etcd_data
+    environment:
+      ETCD_NAME: node_3
+      ETCD_DATA_DIR: /etcd_data/node_3
+      ETCD_ADVERTISE_CLIENT_URLS: http://node_3:2379
+      ETCD_LISTEN_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: http://node_3:2380
+      ETCD_LISTEN_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_CLUSTER: node_0=http://node_0:2380,node_1=http://node_1:2380,node_2=http://node_2:2380,node_3=http://node_3:2380,node_4=http://node_4:2380
+      ALLOW_NONE_AUTHENTICATION: 'yes'
+      ETCD_INITIAL_CLUSTER_STATE: new
+  node_4:
+    image: bitnami/etcd
+    ports:
+      - 10004:2379
+    volumes:
+      - node_4_volume:/etcd_data
+    environment:
+      ETCD_NAME: node_4
+      ETCD_DATA_DIR: /etcd_data/node_4
+      ETCD_ADVERTISE_CLIENT_URLS: http://node_4:2379
+      ETCD_LISTEN_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: http://node_4:2380
+      ETCD_LISTEN_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_CLUSTER: node_0=http://node_0:2380,node_1=http://node_1:2380,node_2=http://node_2:2380,node_3=http://node_3:2380,node_4=http://node_4:2380
+      ALLOW_NONE_AUTHENTICATION: 'yes'
+      ETCD_INITIAL_CLUSTER_STATE: new
+
+volumes:
+  node_0_volume:
+  node_1_volume:
+  node_2_volume:
+  node_3_volume:
+  node_4_volume:
