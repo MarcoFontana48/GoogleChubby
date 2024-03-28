@@ -11,7 +11,7 @@ Docker, Gradle and Git installed.
 Clone the project using
 
 ```shell
-git clone https://dvcs.apice.unibo.it/pika-lab/courses/ds/projects/ds-project-fontana-ay2324
+git clone https://github.com/MarcoFontana48/jGoogleChubby.git
 ```
 
 Once the project is downloaded, use the following command to set up 3 isolated
