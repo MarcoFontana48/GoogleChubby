@@ -3,6 +3,7 @@
 This project explores the design and implementation of “Chubby”, a distributed
 file system, designed by Google, that offers a lock service for loosely-coupled distributed systems
 
+For an in-depth explanation of the project, please refer to the [report](./report_googleChubby.pdf)
 ## How to use
 
 In order to successfully launch the project and its tests, make sure to have
