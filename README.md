@@ -12,7 +12,7 @@ Docker, Gradle and Git installed.
 Clone the project using
 
 ```shell
-git clone https://github.com/MarcoFontana48/jGoogleChubby.git
+git clone https://github.com/MarcoFontana48/GoogleChubby.git
 ```
 
 Once the project is downloaded, use the following command to set up 3 isolated
@@ -67,7 +67,7 @@ This informs the client that an initial handle (read type) on root node has been
 In order to open a new handle use command ’open’;
 i.e. to open an handle on a ’test.txt’ file that will be used to write file content (on a cell named ’local’) the following command may be executed:
 
-open /ls/local/test.txt write
+`open /ls/local/test.txt write`
 
 It will now be shown the request that was sent to the server and the response
 that it’s sent back to the client:
