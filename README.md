@@ -95,7 +95,7 @@ To read the file content, use the read command:
 
 If a command that cannot be executed with current handle is sent to the server, an error response will be received:
 
-`[2024-03-13 09:48:48] client0-request:(write)\ls\local\test.txt< write acl read new read acl name`
+`[2024-03-13 09:48:48] client0-request:(write)\ls\local\test.txt< write acl read new_read_acl_name`
 
 `[2024-03-13 09:48:48] chubby-error:\ls\local\test.txt> it’s not possible to change acl names of current node with ’WRITE’ handle type, acquire ’CHANGE ACL’ handle type before proceeding`
 
@@ -105,20 +105,20 @@ the node and creates a new handle (read type) on root node.
 About event subscriptions, if ’client0’ opens a directory and activates the
 child node added subscription, those messages are going to be exchanged:
 
-`[2024-03-13 10:01:36] client0-request:(read)\< open \ls\local\test dir change acl child node added`
+`[2024-03-13 10:01:36] client0-request:(read)\< open \ls\local\test\dir change acl child node added`
 
-`[2024-03-13 10:01:36] chubby-response:(change acl)\ls\local\test dir> successfully opened node`
+`[2024-03-13 10:01:36] chubby-response:(change acl)\ls\local\test\dir> successfully opened node`
 
 If ’client1’ now creates a child node of ’test dir’ on the same cell:
 
-`[2024-03-13 10:02:03] client1-request:(read)\< open \ls\local\test dir\test child dir change acl`
+`[2024-03-13 10:02:03] client1-request:(read)\< open \ls\local\test\dir\test child dir change acl`
 
-`[2024-03-13 10:02:04] chubby-response:(change acl)\ls\local\test dir\test child dir> successfully opened node`
+`[2024-03-13 10:02:04] chubby-response:(change acl)\ls\local\test\dir\test child dir> successfully opened node`
 
 ’client0’ will receive the following notification:
 
-`[2024-03-13 10:02:03] chubby-notification:\ls\local\test dir> number of child nodes from currently held node has increased`
+`[2024-03-13 10:02:03] chubby-notification:\ls\local\test\dir> number of child nodes from currently held node has increased`
 
-That informs the client that the number of child nodes has increased, and the directory from where the event took place: ’\ls\local\test dir’.
+That informs the client that the number of child nodes has increased, and the directory from where the event took place: ’\ls\local\test\dir’.
 
 Many other examples are provided from the tests that were made, please referto test classes for usage examples; also, once connected to a cell, the command’help’ may be executed for a detailed explanation of the possible commands that may be run.
